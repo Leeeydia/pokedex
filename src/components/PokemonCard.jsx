@@ -27,13 +27,14 @@ const Button = styled.button`
 `;
 
 const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
-  const { img_url, korean_name } = pokemon;
+  const { img_url, korean_name, id } = pokemon;
   const navigate = useNavigate();
 
   return (
     <Card>
-      <img src={img_url} alt={korean_name} />
-      <p>{korean_name}</p>
+      <img src={img_url} alt={pokemon} />
+      <p>NAME : {korean_name}</p>
+      <p>No. {id}</p>
       {isSelected ? (
         <Button onClick={() => onAdd(pokemon)} isSelected>
           삭제
