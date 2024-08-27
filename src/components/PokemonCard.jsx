@@ -5,10 +5,15 @@ import PokemonList from "./PokemonList";
 import Dashboard from "./Dashboard";
 
 const Card = styled.div`
+  margin-left: 37px;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
@@ -27,14 +32,20 @@ const Button = styled.button`
 `;
 
 const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
-  const { img_url, korean_name, id } = pokemon;
-  const navigate = useNavigate();
+  const { img_url, name, id } = pokemon;
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/Detail?id=${id}`);
+  };
   return (
     <Card>
-      <img src={img_url} alt={pokemon} />
-      <p>NAME : {korean_name}</p>
-      <p>No. {id}</p>
+      <div onClick={handleClick}>
+        <img src={img_url} alt={pokemon} />
+        <p>NAME : {name}</p>
+        <p>No. {id}</p>
+      </div>
+
       {isSelected ? (
         <Button onClick={() => onAdd(pokemon)} isSelected>
           삭제

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const DashboardContainer = styled.div`
-  padding: 20px;
+  padding: 30px;
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -12,6 +12,8 @@ const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  text-align: center;
+  margin-left: 180px;
 `;
 
 const Card = styled.div`
