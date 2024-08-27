@@ -31,12 +31,14 @@ const Button = styled.button`
   }
 `;
 
+const DetailBtn = styled.button``;
+
 const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
   const { img_url, name, id } = pokemon;
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/Detail?id=${id}`);
+    navigate(`/pokemon-detail?id=${id}`);
   };
   return (
     <Card>
@@ -53,6 +55,14 @@ const PokemonCard = ({ pokemon, onAdd, isSelected }) => {
       ) : (
         <Button onClick={() => onAdd(pokemon)}>추가</Button>
       )}
+      <DetailBtn
+        onClick={(e) => {
+          e.stopPropagation();
+          navigate(`/pokemon-detail?id=${pokemon.id}`);
+        }}
+      >
+        자세히
+      </DetailBtn>
     </Card>
   );
 };
